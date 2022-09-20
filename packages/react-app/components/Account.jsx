@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Stack, Button } from "@mui/material";
 import React from "react";
 import { useThemeSwitcher } from "react-css-theme-switcher";
 import Address from "./Address";
@@ -55,27 +55,20 @@ export default function Account({
   if (web3Modal) {
     if (web3Modal.cachedProvider) {
       modalButtons.push(
-        <Button
-          key="logoutbutton"
-          style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
-          shape="round"
-          size="large"
-          onClick={logoutOfWeb3Modal}
-        >
-          logout
+        <Button variant="contained" key="logoutbutton" size="large" onClick={logoutOfWeb3Modal}>
+          Logout
         </Button>,
       );
     } else {
       modalButtons.push(
         <Button
+          variant="contained"
           key="loginbutton"
-          style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
-          shape="round"
           size="large"
           /* type={minimized ? "default" : "primary"}     too many people just defaulting to MM and having a bad time */
           onClick={loadWeb3Modal}
         >
-          connect
+          Connect
         </Button>,
       );
     }
@@ -86,7 +79,7 @@ export default function Account({
   const display = minimized ? (
     ""
   ) : (
-    <span>
+    <Stack direction="row">
       {address ? (
         <Address address={address} ensProvider={mainnetProvider} blockExplorer={blockExplorer} />
       ) : (
@@ -101,13 +94,13 @@ export default function Account({
         price={price}
         color={currentTheme === "light" ? "#1890ff" : "#2caad9"}
       />
-    </span>
+    </Stack>
   );
 
   return (
-    <div>
+    <Stack direction="row">
       {display}
       {modalButtons}
-    </div>
+    </Stack>
   );
 }
