@@ -6,6 +6,9 @@ import { useEnsProfile } from "./../../../hooks/useEnsProfile";
 import { Stack, Container, Button } from "@mui/material";
 import { UserCard } from "./../../../components/User/UserCard";
 import { NftTransactions } from "../../../components/User/NftTransactions";
+import { NftContracts } from "../../../components/User/NftContracts";
+import { NftOwned } from "../../../components/User/NftOwned";
+import { TokenBalances } from "../../../components/User/TokenBalances";
 
 function Web3User({ web3 }) {
   const { mainnetProvider } = web3;
@@ -28,7 +31,12 @@ function Web3User({ web3 }) {
       </Stack>
       <Stack direction="row" spacing={4} sx={{ marginTop: 4 }}>
         <UserCard address={user} ensProfile={ensProfile} />
-        <NftTransactions address={user} />
+        <Stack direction="column" spacing={3} sx={{ width: "100%" }}>
+          <NftTransactions address={user} />
+          <NftOwned address={user} />
+          <NftContracts address={user} />
+          <TokenBalances address={user} />
+        </Stack>
       </Stack>
     </Container>
   );

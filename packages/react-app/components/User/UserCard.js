@@ -47,15 +47,18 @@ export function UserCard({ address, ensProfile }) {
   const description = recordMap["com.description"];
   const reddit = recordMap["com.reddit"];
   const telegram = recordMap["com.telegram"];
+  const shortAddress = address.substr(0, 6) + "..." + address.substr(-4);
   return (
     <Stack direction="row">
       <Card sx={{ width: 345 }}>
-        <CardHeader avatar={avatar} title={<Typography variant="h5">{name}</Typography>} subheader={recordMap.url} />
-        <CardContent>
+        <Stack direction="column" spacing={2} justifyContent="center" alignItems="center" sx={{ margin: 1 }}>
+          {avatar}
+          <Typography variant="h5">{name ? name : shortAddress}</Typography>
+          <Typography variant="h6">{recordMap.url}</Typography>
           <Typography variant="body2" color="text.secondary">
             {description}
           </Typography>
-        </CardContent>
+        </Stack>
         <Stack direction="column" spacing={3} justifyContent="center" alignItems="center" sx={{ margin: 1 }}>
           <Button variant="contained" startIcon={<TwitterIcon />} disabled={!!!twitter}>
             {twitter ? twitter : "Not Set"}
