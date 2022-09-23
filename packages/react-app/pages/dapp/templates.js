@@ -1,8 +1,10 @@
 import React from "react";
-import { Web3Consumer } from "../../helpers/Web3Context";
+import { Templates as TemplatesComponent } from "./../../components/Templates";
+import { CompleteToContinue } from "../../components/CompleteToContinue";
+import { Web3Consumer } from "./../../helpers/Web3Context";
 
 function Templates({ web3 }) {
-  return <>Templates</>;
+  return <CompleteToContinue ChildComponent={TemplatesComponent} web3={web3} requiresServices />;
 }
 
 export default Web3Consumer(Templates);

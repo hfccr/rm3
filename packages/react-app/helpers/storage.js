@@ -1,5 +1,7 @@
 const serviceConfigKey = "SERVICE_CONFIG";
 const dashboardKey = "DASHBOARDS";
+const templatesKey = "TEMPLATES";
+const segmentsKey = "SEGMENTS";
 
 const getObject = localStorageKey => {
   let config;
@@ -52,4 +54,46 @@ export const addDashboard = dashboard => {
 
 export const clearDashboards = () => {
   localStorage.removeItem(dashboardKey);
+};
+
+export const getTemplates = () => {
+  return getObject(templatesKey);
+};
+
+export const setTemplates = templates => {
+  localStorage.setItem(templatesKey, JSON.stringify(templates));
+};
+
+export const addTemplate = template => {
+  let templates = getTemplates();
+  if (!Array.isArray(templates)) {
+    templates = [];
+  }
+  templates.push(template);
+  setTemplates(templates);
+};
+
+export const clearTemplates = () => {
+  localStorage.removeItem(templatesKey);
+};
+
+export const getSegments = () => {
+  return getObject(segmentsKey);
+};
+
+export const setSegments = segments => {
+  localStorage.setItem(segmentsKey, JSON.stringify(segments));
+};
+
+export const addSegment = segment => {
+  let segments = getSegments();
+  if (!Array.isArray(segments)) {
+    segments = [];
+  }
+  segments.push(segment);
+  setSegments(segments);
+};
+
+export const clearSegments = () => {
+  localStorage.removeItem(segmentsKey);
 };
