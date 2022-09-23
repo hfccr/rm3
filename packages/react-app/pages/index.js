@@ -8,14 +8,10 @@ function Home({ web3 }) {
 
   return (
     <>
-      {/* Page Header start */}
-      <Header web3={web3} />
-      {/* Page Header end */}
-
       {/* Main Page Content start */}
       <div className="flex flex-1 flex-col h-screen w-full items-center">
         <div className="text-center">
-          <Splash />
+          <Splash {...web3} />
           {/* <Contract
             name="YourContract"
             signer={web3.userSigner}

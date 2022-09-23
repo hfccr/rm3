@@ -15,3 +15,11 @@ canvas {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+.ag-theme-alpine{
+  width: 100%;
+}
+
+.ag-root-wrapper{
+  height: 500px !important;
+}

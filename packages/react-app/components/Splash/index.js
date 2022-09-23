@@ -1,7 +1,14 @@
 import React from "react";
 import { Typography, Stack, Container, Button } from "@mui/material";
+import Link from "next/link";
 
-export function Splash() {
+export function Splash({ web3Modal }) {
+  let showLaunch = false;
+  if (web3Modal) {
+    if (web3Modal.cachedProvider) {
+      showLaunch = true;
+    }
+  }
   return (
     <Container maxWidth="xl">
       <Stack direction="column" justifyContent="center" alignItems="center">
@@ -14,7 +21,7 @@ export function Splash() {
         <Typography variant="h4">Social: Lens</Typography>
         <Typography variant="h4">Benefits: Worldcoin, Superfluid, ENS, Unstoppable Domains</Typography>
         <Typography variant="h4">Economics: AAVE, Yearn, APWine</Typography>
-        <Button variant="contained">Launch App</Button>
+        {showLaunch && <Link href="/dapp">Launch App</Link>}
       </Stack>
     </Container>
   );
