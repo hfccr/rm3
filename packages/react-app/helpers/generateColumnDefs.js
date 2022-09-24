@@ -14,8 +14,17 @@ export const generateColumnDefs = dataList => {
       });
     });
   }
-  const columnDefs = [...columnSet].map(columnKey => {
-    return { field: columnKey, filter: typeMap[columnKey], sortingOrder: ["asc", "desc"] };
+  const columnDefs = [...columnSet].map((columnKey, index) => {
+    let columnDef = { field: columnKey, filter: typeMap[columnKey], sortingOrder: ["asc", "desc"] };
+    if (index === 0) {
+      columnDef = {
+        ...columnDef,
+        headerCheckboxSelection: true,
+        headerCheckboxSelectionFilteredOnly: true,
+        checkboxSelection: true,
+      };
+    }
+    return columnDef;
   });
   return columnDefs;
 };

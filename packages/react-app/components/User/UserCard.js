@@ -19,8 +19,11 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 import RedditIcon from "@mui/icons-material/Reddit";
 import { MessagingContext } from "../Contexts/MessagingContext";
 import { useContext } from "react";
+import Paper from "@mui/material/Paper";
 
-export function UserCard({ address, ensProfile }) {
+export function UserCard({ address, ensProfile, miniMode }) {
+  miniMode = true;
+  const buttonSize = miniMode ? "small" : "medium";
   const { xmtpSubject, xmtpDialogOpen, openXmtpDialog, closeXmtpDialog } = useContext(MessagingContext);
   let name,
     records,
@@ -29,11 +32,13 @@ export function UserCard({ address, ensProfile }) {
   if (ensProfile) {
     name = ensProfile.name;
     records = ensProfile.records;
-    texts = records.texts;
-    if (Array.isArray(texts)) {
-      texts.forEach(text => {
-        recordMap[text.key] = text.value;
-      });
+    if (records) {
+      texts = records.texts;
+      if (Array.isArray(texts)) {
+        texts.forEach(text => {
+          recordMap[text.key] = text.value;
+        });
+      }
     }
   }
   let avatar = <></>;
@@ -51,47 +56,81 @@ export function UserCard({ address, ensProfile }) {
   const reddit = recordMap["com.reddit"];
   const telegram = recordMap["com.telegram"];
   const shortAddress = address.substr(0, 6) + "..." + address.substr(-4);
+  const defaultValue = "Not Set";
   return (
-    <Stack direction="row">
-      <Card sx={{ width: 345 }}>
-        <Stack direction="column" spacing={2} justifyContent="center" alignItems="center" sx={{ margin: 1 }}>
+    <Paper sx={{ padding: 2 }}>
+      <Stack direction="column" sx={{ width: 400 }}>
+        <Stack
+          direction={miniMode ? "row" : "column"}
+          spacing={2}
+          justifyContent="flex-start"
+          alignItems="center"
+          sx={{ margin: 1 }}
+        >
           {avatar}
-          <Typography variant="h5">{name ? name : shortAddress}</Typography>
-          <Typography variant="h6">{recordMap.url}</Typography>
-          <Typography variant="body2" color="text.secondary">
-            {description}
-          </Typography>
+          <Stack direction="column">
+            <Typography variant="h5">{name ? name : shortAddress}</Typography>
+            <Typography variant="h6">{recordMap.url}</Typography>
+            <Typography variant="body2" color="text.secondary">
+              {description}
+            </Typography>
+          </Stack>
         </Stack>
-        <Stack direction="column" spacing={3} justifyContent="center" alignItems="center" sx={{ margin: 1 }}>
-          <Button variant="contained" startIcon={<TwitterIcon />} disabled={!!!twitter}>
-            {twitter ? twitter : "Not Set"}
-          </Button>
-          <Button variant="contained" startIcon={<EmailIcon />} disabled={!!!email}>
-            {email ? email : "Not Set"}
-          </Button>
-          <Button variant="contained" startIcon={<VideogameAssetIcon />} disabled={!!!discord}>
-            {discord ? discord : "Not Set"}
-          </Button>
-          <Button variant="contained" startIcon={<RedditIcon />} disabled={!!!reddit}>
-            {reddit ? reddit : "Not Set"}
-          </Button>
-          <Button variant="contained" startIcon={<TelegramIcon />} disabled={!!!telegram}>
-            {telegram ? telegram : "Not Set"}
-          </Button>
-          <Button
-            variant="contained"
-            startIcon={<ChatIcon />}
-            onClick={() => {
-              openXmtpDialog(address);
-            }}
+        <Stack direction="column" spacing={1}>
+          <Stack
+            direction="row"
+            spacing={1}
+            justifyContent="center"
+            alignItems="center"
+            sx={{ margin: 1, maxWidth: 400 }}
           >
-            XMTP
-          </Button>
-          <Button variant="contained" startIcon={<NotificationsIcon />}>
-            EPNS
-          </Button>
+            <Button size={buttonSize} variant="contained" startIcon={<TwitterIcon />} disabled={!!!twitter}>
+              {twitter ? twitter : defaultValue}
+            </Button>
+            <Button size={buttonSize} variant="contained" startIcon={<EmailIcon />} disabled={!!!email}>
+              {email ? email : defaultValue}
+            </Button>
+          </Stack>
+          <Stack
+            direction="row"
+            spacing={1}
+            justifyContent="center"
+            alignItems="center"
+            sx={{ margin: 1, maxWidth: 400 }}
+          >
+            <Button size={buttonSize} variant="contained" startIcon={<VideogameAssetIcon />} disabled={!!!discord}>
+              {discord ? discord : defaultValue}
+            </Button>
+            {/* <Button size={buttonSize} variant="contained" startIcon={<RedditIcon />} disabled={!!!reddit}>
+              {reddit ? reddit : defaultValue}
+            </Button> */}
+            <Button size={buttonSize} variant="contained" startIcon={<TelegramIcon />} disabled={!!!telegram}>
+              {telegram ? telegram : defaultValue}
+            </Button>
+          </Stack>
+          <Stack
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+            sx={{ margin: 2, maxWidth: 400 }}
+          >
+            <Button
+              size={buttonSize}
+              variant="contained"
+              startIcon={<ChatIcon />}
+              onClick={() => {
+                openXmtpDialog(address);
+              }}
+            >
+              XMTP
+            </Button>
+            <Button size={buttonSize} variant="contained" startIcon={<NotificationsIcon />}>
+              EPNS
+            </Button>
+          </Stack>
         </Stack>
-      </Card>
-    </Stack>
+      </Stack>
+    </Paper>
   );
 }

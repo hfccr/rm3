@@ -25,10 +25,10 @@ export function Nav({ web3 }) {
           <MenuItem href="/dapp/setup" title="Setup" />
           <MenuItem href="/dapp/dashboards" title="Dashboards" />
           <MenuItem href="/dapp/campaigns" title="Campaigns" />
+          <MenuItem href="/dapp/user" title="User" />
           <MenuItem href="/dapp/templates" title="Templates" />
           <MenuItem href="/dapp/segments" title="Segments" />
           <MenuItem href="/dapp/discover" title="Discover" />
-          <MenuItem href="/dapp/user" title="User" />
           <MenuItem href="/dapp/guild" title="Guild" />
           <MenuItem href="/dapp/publish" title="Publish" />
         </>
