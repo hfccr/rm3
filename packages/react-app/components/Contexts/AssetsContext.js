@@ -20,6 +20,11 @@ const defaultAssetsContext = {
   addSegment: () => {},
   hasSegments: () => {},
   clearSegments: () => {},
+  campaigns: [],
+  setCampaigns: () => {},
+  addCampaign: () => {},
+  hasCampaigns: () => {},
+  clearCampaigns: () => {},
 };
 
 export const AssetsContext = createContext(defaultAssetsContext);

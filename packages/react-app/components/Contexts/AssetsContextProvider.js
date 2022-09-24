@@ -16,6 +16,10 @@ import {
   setSegments as setSegmentsToStorage,
   addSegment as addSegmentToStorage,
   clearSegments as clearSegmentsFromStorage,
+  getCampaigns as getCampaignsFromStorage,
+  setCampaigns as setCampaignsToStorage,
+  addCampaign as addCampaignToStorage,
+  clearCampaigns as clearCampaignsFromStorage,
 } from "../../helpers/storage";
 
 export function AssetsContextProvider({ children }) {
@@ -83,6 +87,23 @@ export function AssetsContextProvider({ children }) {
     setSegments([]);
   };
 
+  const [campaigns, setCampaigns] = useState([]);
+  const setCampaignsInSync = campaigns => {
+    setCampaignsToStorage(campaigns);
+    setCampaigns(campaigns);
+  };
+  const addCampaign = campaign => {
+    addCampaignToStorage(campaign);
+    setCampaigns([...campaigns, campaign]);
+  };
+  const hasCampaigns = () => {
+    return Array.isArray(campaigns) && campaigns.length > 0;
+  };
+  const clearCampaigns = () => {
+    clearCampaignsFromStorage();
+    setCampaigns([]);
+  };
+
   useEffect(() => {
     const defaultServices = getServicesFromStorage();
     const setInitialServices = typeof defaultServices === "object" ? defaultServices : {};
@@ -96,6 +117,9 @@ export function AssetsContextProvider({ children }) {
     const defaultSegments = getSegmentsFromStorage();
     const setInitialSegments = Array.isArray(defaultSegments) ? defaultSegments : [];
     setSegments(setInitialSegments);
+    const defaultCampaigns = getCampaignsFromStorage();
+    const setInitialCampaigns = Array.isArray(defaultCampaigns) ? defaultCampaigns : [];
+    setCampaigns(setInitialCampaigns);
   }, []);
   return (
     <AssetsContext.Provider
@@ -119,6 +143,11 @@ export function AssetsContextProvider({ children }) {
         addSegment,
         hasSegments,
         clearSegments,
+        campaigns,
+        setCampaigns: setCampaignsInSync,
+        addCampaign,
+        hasCampaigns,
+        clearCampaigns,
       }}
     >
       {children}

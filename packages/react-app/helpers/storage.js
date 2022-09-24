@@ -2,6 +2,7 @@ const serviceConfigKey = "SERVICE_CONFIG";
 const dashboardKey = "DASHBOARDS";
 const templatesKey = "TEMPLATES";
 const segmentsKey = "SEGMENTS";
+const campaignsKey = "CAMPAIGNS";
 
 const getObject = localStorageKey => {
   let config;
@@ -96,4 +97,25 @@ export const addSegment = segment => {
 
 export const clearSegments = () => {
   localStorage.removeItem(segmentsKey);
+};
+
+export const getCampaigns = () => {
+  return getObject(campaignsKey);
+};
+
+export const setCampaigns = campaigns => {
+  localStorage.setItem(campaignsKey, JSON.stringify(campaigns));
+};
+
+export const addCampaign = campaign => {
+  let campaigns = getCampaigns();
+  if (!Array.isArray(campaigns)) {
+    campaigns = [];
+  }
+  campaigns.push(campaign);
+  setCampaigns(campaigns);
+};
+
+export const clearCampaigns = () => {
+  localStorage.removeItem(campaignsKey);
 };

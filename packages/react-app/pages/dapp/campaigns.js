@@ -1,8 +1,10 @@
 import React from "react";
-import { Web3Consumer } from "../../helpers/Web3Context";
+import { Campaigns as CampaignsComponent } from "./../../components/Campaigns";
+import { CompleteToContinue } from "../../components/CompleteToContinue";
+import { Web3Consumer } from "./../../helpers/Web3Context";
 
 function Campaigns({ web3 }) {
-  return <>Campaigns</>;
+  return <CompleteToContinue ChildComponent={CampaignsComponent} web3={web3} requiresServices />;
 }
 
 export default Web3Consumer(Campaigns);
