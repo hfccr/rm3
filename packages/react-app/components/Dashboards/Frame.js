@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import IframeResizer from "iframe-resizer-react";
 
-export const Frame = ({ url, index }) => {
+export const Frame = ({ url, index, small }) => {
   const iframeRef = useRef(null);
   const [messageData, setMessageData] = useState();
 
@@ -15,7 +15,7 @@ export const Frame = ({ url, index }) => {
     setMessageData(data);
     iframeRef.current.sendMessage("Hello back from the parent page");
   };
-
+  const minHeight = small ? "700px" : "2000px";
   return (
     <>
       <IframeResizer
@@ -29,7 +29,7 @@ export const Frame = ({ url, index }) => {
         onMessage={onMessage}
         onResized={onResized}
         src={url}
-        style={{ width: "1px", minWidth: "100%", minHeight: "2000px" }}
+        style={{ width: "1px", minWidth: "100%", minHeight }}
         resizeFrom="child"
       />
     </>

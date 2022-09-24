@@ -17,8 +17,11 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import VideogameAssetIcon from "@mui/icons-material/VideogameAsset";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import RedditIcon from "@mui/icons-material/Reddit";
+import { MessagingContext } from "../Contexts/MessagingContext";
+import { useContext } from "react";
 
 export function UserCard({ address, ensProfile }) {
+  const { xmtpSubject, xmtpDialogOpen, openXmtpDialog, closeXmtpDialog } = useContext(MessagingContext);
   let name,
     records,
     texts,
@@ -75,7 +78,13 @@ export function UserCard({ address, ensProfile }) {
           <Button variant="contained" startIcon={<TelegramIcon />} disabled={!!!telegram}>
             {telegram ? telegram : "Not Set"}
           </Button>
-          <Button variant="contained" startIcon={<ChatIcon />}>
+          <Button
+            variant="contained"
+            startIcon={<ChatIcon />}
+            onClick={() => {
+              openXmtpDialog(address);
+            }}
+          >
             XMTP
           </Button>
           <Button variant="contained" startIcon={<NotificationsIcon />}>
