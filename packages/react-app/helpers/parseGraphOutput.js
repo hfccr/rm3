@@ -1,7 +1,6 @@
 export const parseGraphOutput = graph => {
   const gridData = [];
   const { data } = graph;
-  console.log(graph);
   const dataPoints = Object.keys(data);
   dataPoints.forEach(dataPoint => {
     const value = data[dataPoint];
