@@ -14,9 +14,7 @@ export function XmtpDialog() {
     <>
       <Dialog open={xmtpDialogOpen} onClose={closeXmtpDialog} maxWidth="xl" keepMounted={true}>
         <DialogTitle>Message {xmtpSubject}</DialogTitle>
-        <DialogContent sx={{ minWidth: 600 }}>
-          <Frame url={url} index={1} small />
-        </DialogContent>
+        <DialogContent sx={{ minWidth: 600 }}>{/* <Frame url={url} index={1} small /> */}</DialogContent>
         <DialogActions>
           <Button onClick={closeXmtpDialog}>Close</Button>
         </DialogActions>

@@ -51,6 +51,8 @@ export default function Account({
   logoutOfWeb3Modal,
   blockExplorer,
 }) {
+  console.log("WEB3Modal");
+  console.log(web3Modal);
   const modalButtons = [];
   if (web3Modal) {
     if (web3Modal.cachedProvider) {
