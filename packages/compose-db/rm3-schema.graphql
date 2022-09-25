@@ -1,0 +1,7 @@
+type Post @createModel(accountRelation: LIST, description: "BYOS") {
+  graphPrivateKey: String @string(maxLength: 50)
+  covalentPrivateKey: String @string(maxLength: 50)
+  nftPortPrivateKey: String @string(maxLength: 50)
+  infuraPrivateKey: String @string(maxLength: 50)
+  alchemyPrivateKey: String @string(maxLength: 50)
+}

@@ -1,0 +1,18 @@
+{
+  "name": "ceramic",
+  "version": "1.0.0",
+  "description": "Non custodial services management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@composedb/devtools": "^0.2.0",
+    "@composedb/devtools-node": "^0.2.0"
+  },
+  "dependencies": {
+    "@composedb/client": "^0.2.0"
+  }
+}
