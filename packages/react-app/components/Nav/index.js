@@ -28,8 +28,8 @@ export function Nav({ web3 }) {
           <MenuItem href="/dapp/user" title="User" />
           <MenuItem href="/dapp/templates" title="Templates" />
           <MenuItem href="/dapp/segments" title="Segments" />
-          <MenuItem href="/dapp/discover" title="Discover" />
           <MenuItem href="/dapp/publish" title="Publish" />
+          <MenuItem href="/dapp/discover" title="Discover" />
         </>
       )}
     </>
