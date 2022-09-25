@@ -84,6 +84,10 @@ export default function SetupForm({ web3 }) {
               {hasByos && (
                 <>
                   <Typography variant="h4">Congratulations, Your BYOS Setup Is Complete!</Typography>
+                  <Typography variant="h5">
+                    Your Service keys have been safely saved on Ceramic. You can now use these credentials on any dApp
+                    that integrates with the RM3 BYOS protocol.
+                  </Typography>
                   <Button variant="contained" onClick={clearByos}>
                     Clear BYOS
                   </Button>
@@ -100,7 +104,7 @@ export default function SetupForm({ web3 }) {
                           name="graphPrivateKey"
                           variant="outlined"
                           type="password"
-                          helperText="Please enter your Graph private key"
+                          helperText="Visit https://thegraph.com/ to get started"
                           onChange={handleInputChange}
                           value={publisherForm.graphPrivateKey}
                         />
@@ -110,7 +114,7 @@ export default function SetupForm({ web3 }) {
                           name="covalentPrivateKey"
                           variant="outlined"
                           type="password"
-                          helperText="Please enter your Covalent private key"
+                          helperText="Visit https://www.covalenthq.com/ to get started"
                           onChange={handleInputChange}
                           value={publisherForm.covalentPrivateKey}
                         />
@@ -120,7 +124,7 @@ export default function SetupForm({ web3 }) {
                           name="nftPortPrivateKey"
                           variant="outlined"
                           type="password"
-                          helperText="Please enter your NFTPort private key"
+                          helperText="Visit https://www.nftport.xyz/ to get started"
                           onChange={handleInputChange}
                           value={publisherForm.nftPortPrivateKey}
                         />
@@ -130,7 +134,7 @@ export default function SetupForm({ web3 }) {
                           name="infuraPrivateKey"
                           variant="outlined"
                           type="password"
-                          helperText="Please enter your Infura private key"
+                          helperText="Visit https://infura.io/ to get started"
                           onChange={handleInputChange}
                           value={publisherForm.infuraPrivateKey}
                         />
@@ -140,7 +144,7 @@ export default function SetupForm({ web3 }) {
                           name="alchemyPrivateKey"
                           variant="outlined"
                           type="password"
-                          helperText="Please enter your Alchemy private key"
+                          helperText="Visit https://www.alchemy.com/ to get started"
                           onChange={handleInputChange}
                           value={publisherForm.alchemyPrivateKey}
                         />
