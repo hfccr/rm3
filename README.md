@@ -1,102 +1,17 @@
-# 🏗 Scaffold-ETH + ▲ Next.js
+RM3
 
-> everything you need to build on Ethereum! 🚀
+About
 
-🧪 Quickly experiment with Solidity using a frontend that adapts to your smart contract:
+This project is built around two core ideas.
 
-![image](https://user-images.githubusercontent.com/2653167/124158108-c14ca380-da56-11eb-967e-69cde37ca8eb.png)
+This project is built around two core ideas.
 
+The first idea is a general purpose tool that solves a difficult problem for dapp developers wherein they are either required to maintain a server for keeping their API keys like NFTStorage, Graph, Covalent, Infura, etc. or expose them on the frontend. The role of the server usually is just maintaining the server which is expensive in itself and also, even if these services have a generous free tier, it can be difficult to manage the quotas if users keep spamming. Exposing the keys on the frontend makes them vulnerable to getting stolen. RM3 introduces the BYOS protocol where users of a Dapp have to supply their own API keys to these services which are linked to a DID. This is a one time activity and these API keys can then be used across Dapps. This improves the balance in terms of fair usage where each user has to stay within their own quota and the Dapp developer does not have to maintain servers just to hold secrets.
 
-# 🏄‍♂️ Quick Start
+The second idea is a serverless Web3 CRM that also demonstrates the power of BYOS protocol. Web2 CRMs for web3 are generally closed tools built around data privacy infringement and spamming. RM3 is a customizable tool meant for the entire community where community members can host dashboards, find and list other community members through subgraph querying, sort/filter/visualize the results, view web3 activities for a user, create segments, create notification templates, talk to community members through EPNS and XMTP and publish the entire setup through IPFS and NFTs on L2 chains for the entire community to use and improve upon.
 
-Prerequisites: [Node](https://nodejs.org/en/download/) plus [Yarn](https://classic.yarnpkg.com/en/docs/install/) and [Git](https://git-scm.com/downloads)
+The second idea is a serverless Web3 CRM that also demonstrates the power of BYOS protocol. Web2 CRMs for web3 are generally closed tools built around data privacy infringement and spamming. RM3 is a customizable tool meant for the entire community where community members can host dashboards, find and list community members through subgraph querying, sort/filter/visualize the results, view web3 activities for a user, create segments, create notification templates and publish the entire setup through IPFS and NFTs on L2 chains for the entire community to use and improve upon.
 
-> clone/fork 🏗 scaffold-eth:
+Tech Stack
 
-```bash
-git clone https://github.com/austintgriffith/scaffold-eth.git scaffold-nextjs
-```
-
-> checkout the `scaffold-nextjs` branch
-
-```bash
-cd scaffold-nextjs
-git checkout scaffold-nextjs
-```
-
-> install and start your 👷‍ Hardhat chain:
-
-```bash
-yarn install
-yarn chain
-```
-
-> in a second terminal window, 🛰 deploy your contract:
-
-```bash
-cd scaffold-nextjs
-yarn deploy
-```
-
-> in a third terminal window, start your 📱 frontend:
-
-```bash
-cd scaffold-nextjs
-yarn start
-```
-
-🔏 Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
-
-📝 Edit your frontend `index.js` in `packages/react-app/src/pages`
-
-💼 Edit your deployment scripts in `packages/hardhat/deploy`
-
-📱 Open http://localhost:3000 to see the app
-
-# 📚 Documentation
-
-Documentation, tutorials, challenges, and many more resources, visit: [docs.scaffoldeth.io](https://docs.scaffoldeth.io)
-
-# 🔭 Learning Solidity
-
-📕 Read the docs: https://docs.soliditylang.org
-
-📚 Go through each topic from [solidity by example](https://solidity-by-example.org) editing `YourContract.sol` in **🏗 scaffold-eth**
-
-- [Primitive Data Types](https://solidity-by-example.org/primitives/)
-- [Mappings](https://solidity-by-example.org/mapping/)
-- [Structs](https://solidity-by-example.org/structs/)
-- [Modifiers](https://solidity-by-example.org/function-modifier/)
-- [Events](https://solidity-by-example.org/events/)
-- [Inheritance](https://solidity-by-example.org/inheritance/)
-- [Payable](https://solidity-by-example.org/payable/)
-- [Fallback](https://solidity-by-example.org/fallback/)
-
-📧 Learn the [Solidity globals and units](https://solidity.readthedocs.io/en/v0.6.6/units-and-global-variables.html)
-
-# 🛠 Buidl
-
-Check out all the [active branches](https://github.com/austintgriffith/scaffold-eth/branches/active), [open issues](https://github.com/austintgriffith/scaffold-eth/issues), and join/fund the 🏰 [BuidlGuidl](https://BuidlGuidl.com)!
-
-  
- - 🚤  [Follow the full Ethereum Speed Run](https://medium.com/@austin_48503/%EF%B8%8Fethereum-dev-speed-run-bd72bcba6a4c)
-
-
- - 🎟  [Create your first NFT](https://github.com/austintgriffith/scaffold-eth/tree/simple-nft-example)
- - 🥩  [Build a staking smart contract](https://github.com/austintgriffith/scaffold-eth/tree/challenge-1-decentralized-staking)
- - 🏵  [Deploy a token and vendor](https://github.com/austintgriffith/scaffold-eth/tree/challenge-2-token-vendor)
- - 🎫  [Extend the NFT example to make a "buyer mints" marketplace](https://github.com/austintgriffith/scaffold-eth/tree/buyer-mints-nft)
- - 🎲  [Learn about commit/reveal](https://github.com/austintgriffith/scaffold-eth/tree/commit-reveal-with-frontend)
- - ✍️  [Learn how ecrecover works](https://github.com/austintgriffith/scaffold-eth/tree/signature-recover)
- - 👩‍👩‍👧‍👧  [Build a multi-sig that uses off-chain signatures](https://github.com/austintgriffith/scaffold-eth/tree/meta-multi-sig)
- - ⏳  [Extend the multi-sig to stream ETH](https://github.com/austintgriffith/scaffold-eth/tree/streaming-meta-multi-sig)
- - ⚖️  [Learn how a simple DEX works](https://medium.com/@austin_48503/%EF%B8%8F-minimum-viable-exchange-d84f30bd0c90)
- - 🦍  [Ape into learning!](https://github.com/austintgriffith/scaffold-eth/tree/aave-ape)
-
-# 💬 Support Chat
-
-Join the telegram [support chat 💬](https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA) to ask questions and find others building with 🏗 scaffold-eth!
-
----
-
-🙏 Please check out our [Gitcoin grant](https://gitcoin.co/grants/2851/scaffold-eth) too!
+This project uses Ceramic DIDs to store service API keys which they can use across Web3 after just a single configuration. The RM3 frontend integrates with the Self.ID sdk to pull the required service API keys to function. If not present already, RM3 frontend provides a way for the user to create it. This allows RM3 to work with The Graph, Covalent, NFTPort, NFTStorage APIs without having a server side. This is also a general purpose library which other Dapp developers can use. RM3 uses The Graph protocol to let users query for the relevant data. This data is then automatically transformed into tables which can be sorted, filtered on, visualized, grouped by, pivoted on. The tables hold intelligence to identify eth addresses and allow users to create segments. The user can then send EPNS notifications to the segment. Individual communication happens through XMTP. Also, each users data is enriched with ENS details. The entire setup can be published in IPFS through nft.storage. This can then be added to the collections which have been deployed on Polygon, Optimism and Aurora.
