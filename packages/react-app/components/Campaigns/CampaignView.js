@@ -9,12 +9,12 @@ export const CampaignView = ({ campaign, index }) => {
   const { campaignName, campaignGraphId, campaignQuery } = campaign;
   const { services } = useContext(AssetsContext);
   const { graph } = services;
-  const { loading, success, error, data: graph } = useGraph(campaignGraphId, campaignQuery, graph);
+  const { loading, success, error, data: graphData } = useGraph(campaignGraphId, campaignQuery, graph);
   let graphView = "";
   let gridData = [];
-  if (graph) {
-    graphView = JSON.stringify(graph);
-    gridData = parseGraphOutput(graph);
+  if (graphData) {
+    graphView = JSON.stringify(graphData);
+    gridData = parseGraphOutput(graphData);
   }
   const grids = gridData.map((item, index) => <Grid title={item.title} dataList={item.dataList} key={index} />);
   return (
