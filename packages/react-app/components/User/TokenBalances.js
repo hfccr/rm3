@@ -8,8 +8,8 @@ import { Grid } from "./../Grid";
 
 export function TokenBalances({ address }) {
   const { services } = useContext(AssetsContext);
-  const { covalentPrivateKey } = services;
-  const { data: balances } = useCovalentTokenBalances(address, covalentPrivateKey);
+  const { covalent } = services;
+  const { data: balances } = useCovalentTokenBalances(address, covalent);
   let rows = [];
   if (balances) {
     rows = balances.data.items;

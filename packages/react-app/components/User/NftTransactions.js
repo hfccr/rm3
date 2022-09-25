@@ -7,8 +7,8 @@ import { Grid } from "./../Grid";
 
 export function NftTransactions({ address }) {
   const { services } = useContext(AssetsContext);
-  const { nftPortPrivateKey } = services;
-  const { data: transactions } = useNftPortTransactions(address, nftPortPrivateKey);
+  const { nftPort } = services;
+  const { data: transactions } = useNftPortTransactions(address, nftPort);
   let tx = [];
   if (transactions) {
     tx = transactions.transactions;

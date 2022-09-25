@@ -8,8 +8,8 @@ import { Grid } from "./../Grid";
 
 export function NftOwned({ address }) {
   const { services } = useContext(AssetsContext);
-  const { nftPortPrivateKey } = services;
-  const { data: contracts } = useNftPortNfts(address, nftPortPrivateKey);
+  const { nftPort } = services;
+  const { data: contracts } = useNftPortNfts(address, nftPort);
   let rows = [];
   if (contracts) {
     rows = contracts.contracts;

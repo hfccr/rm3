@@ -31,11 +31,10 @@ export default function SetupForm({ web3 }) {
     currentValues = {};
   }
   const defaultValues = {
-    nftPortPrivateKey: "",
-    covalentPrivateKey: "",
-    graphPrivateKey: "",
-    infuraPrivateKey: "",
-    alchemyPrivateKey: "",
+    nftPort: "",
+    nftStorage: "",
+    covalent: "",
+    graph: "",
     ...currentValues,
   };
   const [publisherForm, setPublisherForm] = useState(defaultValues);
@@ -56,23 +55,22 @@ export default function SetupForm({ web3 }) {
       currentValues = {};
     }
     const defaultValues = {
-      nftPortPrivateKey: "",
-      covalentPrivateKey: "",
-      graphPrivateKey: "",
-      infuraPrivateKey: "",
-      alchemyPrivateKey: "",
+      nftPort: "",
+      nftStorage: "",
+      covalent: "",
+      graph: "",
       ...currentValues,
     };
     setPublisherForm(defaultValues);
   }, [services]);
   const setByos = async () => {
-    const publisherFormEntry = "rm3-byos-" + btoa(JSON.stringify(publisherForm)) + "-rm3-byos";
+    const publisherFormEntry = "byos-" + JSON.stringify(publisherForm) + "-byos";
+    console.log(publisherFormEntry);
     await merge({ description: publisherFormEntry });
     setServices(publisherForm);
   };
   const clearByos = async () => {
     await merge({ description: "" });
-    // clearServices();
   };
   return (
     <>
@@ -101,52 +99,42 @@ export default function SetupForm({ web3 }) {
                         <TextField
                           id="graph-private-key"
                           label="The Graph Private Key"
-                          name="graphPrivateKey"
+                          name="graph"
                           variant="outlined"
                           type="password"
                           helperText="Visit https://thegraph.com/ to get started"
                           onChange={handleInputChange}
-                          value={publisherForm.graphPrivateKey}
+                          value={publisherForm.graph}
                         />
                         <TextField
                           id="covalent-private-key"
                           label="Covalent Private Key"
-                          name="covalentPrivateKey"
+                          name="covalent"
                           variant="outlined"
                           type="password"
                           helperText="Visit https://www.covalenthq.com/ to get started"
                           onChange={handleInputChange}
-                          value={publisherForm.covalentPrivateKey}
+                          value={publisherForm.covalent}
                         />
                         <TextField
                           id="nftport-private-key"
                           label="NFTPort Private Key"
-                          name="nftPortPrivateKey"
+                          name="nftPort"
                           variant="outlined"
                           type="password"
                           helperText="Visit https://www.nftport.xyz/ to get started"
                           onChange={handleInputChange}
-                          value={publisherForm.nftPortPrivateKey}
+                          value={publisherForm.nftPort}
                         />
                         <TextField
-                          id="infura-private-key"
-                          label="Infura Private Key"
-                          name="infuraPrivateKey"
+                          id="nftstorage-private-key"
+                          label="nft.storage Private Key"
+                          name="nftStorage"
                           variant="outlined"
                           type="password"
-                          helperText="Visit https://infura.io/ to get started"
+                          helperText="Visit https://nft.storage/ to get started"
                           onChange={handleInputChange}
-                          value={publisherForm.infuraPrivateKey}
-                        />
-                        <TextField
-                          id="alchemy-private-key"
-                          label="Alchemy Private Key"
-                          name="alchemyPrivateKey"
-                          variant="outlined"
-                          type="password"
-                          helperText="Visit https://www.alchemy.com/ to get started"
-                          onChange={handleInputChange}
-                          value={publisherForm.alchemyPrivateKey}
+                          value={publisherForm.nftStorage}
                         />
                       </Stack>
                     </Box>

@@ -8,8 +8,8 @@ import { Grid } from "../Grid";
 export const CampaignView = ({ campaign, index }) => {
   const { campaignName, campaignGraphId, campaignQuery } = campaign;
   const { services } = useContext(AssetsContext);
-  const { graphPrivateKey } = services;
-  const { loading, success, error, data: graph } = useGraph(campaignGraphId, campaignQuery, graphPrivateKey);
+  const { graph } = services;
+  const { loading, success, error, data: graph } = useGraph(campaignGraphId, campaignQuery, graph);
   let graphView = "";
   let gridData = [];
   if (graph) {

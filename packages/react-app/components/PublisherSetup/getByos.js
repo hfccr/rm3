@@ -3,11 +3,11 @@ export const getByos = field => {
     field = "";
   }
   try {
-    const byosMatch = field.match(/rm3-byos-.*-rm3-byos/i);
+    const byosMatch = field.match(/byos-.*-byos/i);
     if (Array.isArray(byosMatch) && byosMatch.length > 0) {
       const byosFormat = byosMatch[0];
-      const byos = byosFormat.replace("rm3-byos-", "").replace("-rm3-byos", "");
-      const decodedByos = atob(byos);
+      const byos = byosFormat.replace("byos-", "").replace("-byos", "");
+      const decodedByos = byos;
       return JSON.parse(decodedByos);
     }
   } catch (e) {
